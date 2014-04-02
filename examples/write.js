@@ -6,10 +6,10 @@ var co = require('co'),
 var start = Date.now();
 co(function *() {
     var out = fs.createWriteStream('test.log'),
-        writer = new Writer(out);
+        writer = new Writer(out, true);
 
     for (var i = 0; i < 1024 * 100; i++) {
-        yield writer.write(i + '\r\n');
+        yield writer.writeline(i);
     }
 
     yield writer.end();
