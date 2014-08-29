@@ -6,7 +6,7 @@ A node.js stream helper in harmony style.
 ## Installation
 
 ```
-npm install express-schema
+npm install co-stream
 ```
 
 ## Usage
