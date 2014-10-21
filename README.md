@@ -28,4 +28,15 @@ co(function *() {
     yield cout.write(txt); // or: yield cout.writeline(txt)
   }
 })();
+
+// Object mode can process object streams such as mongodb stream.
+co(function *() {
+    var objstream = collection.find({ age: { $gte: 10, $lt: 15 } }).stream(),
+        reader = new (cs.Reader)(objstream, { objectMode: true });
+
+    var obj;
+    while (obj = (yield  reader.read())) {
+        // blabla....
+    }
+})();
 ```
