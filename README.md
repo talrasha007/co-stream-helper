@@ -85,7 +85,7 @@ Example, read every line in a file ...
 ``` js
 fs.createReadStream(file, {flags: 'r'})
   .pipe(cs.split())
-  .pipe(cs.string.each(function *(line) {
+  .pipe(cs.object.each(function *(line) {
     //do something with the line 
     console.log('line: ', line);
   }))
