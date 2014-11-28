@@ -4,3 +4,6 @@ exports.Writer = require('./lib/writer.js').Writer;
 
 var MapStream = require('./lib/map-stream.js');
 exports.map = function (mapper, opt) { return new MapStream(mapper, opt); };
+
+var EventStream = require('./lib/event-stream.js');
+exports.fromEmmiter = function (em, opt) { return new EventStream(em, opt); };
