@@ -1,4 +1,21 @@
-var _ = require('codash');
+var _ = require('codash'),
+    through = require('through'),
+    duplex = require('duplexer'),
+    map = require('map-stream'),
+    pause = require('pause-stream'),
+    split = require('split');
+
+exports.through = through;
+exports.duplex = duplex;
+exports.pause = pause;
+exports.split = split;
+
+exports.wait = function *(stream) {
+    yield function (cb) {
+        stream.on('end', cb);
+        stream.on('finish', cb);
+    };
+};
 
 exports.Reader = require('./lib/reader.js').Reader;
 exports.LineReader = require('./lib/reader.js').LineReader;

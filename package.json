@@ -6,7 +6,11 @@
   "readmeFile": "README.md",
   "dependencies": {
     "co": "^4.0.0",
-    "codash": "*"
+    "codash": "*",
+    "duplexer": "^0.1.1",
+    "pause-stream": "0.0.11",
+    "split": "^0.3.1",
+    "through": "^2.3.6"
   },
   "devDependencies": {}
 }
