@@ -1,10 +1,7 @@
-co-stream
-================
-
-A node.js stream helper in harmony style.
+#co-stream
+Construct co-pipes of streams. Parallel processing supported.
 
 ## Installation
-
 ```
 npm install co-stream
 ```
