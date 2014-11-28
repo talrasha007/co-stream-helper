@@ -1,7 +1,6 @@
 var _ = require('codash'),
     through = require('through'),
     duplex = require('duplexer'),
-    map = require('map-stream'),
     pause = require('pause-stream'),
     split = require('split');
 
