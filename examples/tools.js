@@ -12,7 +12,7 @@ fs.createReadStream('test.log')
 var Emitter = require('events').EventEmitter,
     em = new Emitter();
 
-var evs = cs.object.fromEmitter(em, { objectMode: true });
+var evs = cs.object.fromEmitter(em);
 
 evs.pipe(cs.object.map(function *(data) { return _.extend({ xx: data.a }, data); }))
    .pipe(cs.object.each(function *(data) { yield _.sleep(1000); console.log(data); }, { parallel: 2 }));
