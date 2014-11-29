@@ -38,6 +38,23 @@ cs.through(function write(data) {
   })
 ```
 
+## fromEmitter(eventEmitter, opt)
+
+Create a stream from an event emitter.
+
+``` js
+var cs = require('co-stream');
+
+var es = cs.fromEmitter(evt, {
+            objectMode: true,
+            data: 'message',     // event name for data, default 'data'
+            end: 'finish',       // event name for end, default 'end'
+            pause: evt.stop,     // method to pause event emitter, default evt.pause || function () {}
+            resume: evt.start });// method to resume event emiiter, default evt.resume || function () {}
+
+es.pipe(process.stdout);
+```
+
 ## map
 
 Create a map stream from an generator function.  
