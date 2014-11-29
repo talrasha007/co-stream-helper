@@ -53,6 +53,9 @@ var es = cs.fromEmitter(evt, {
             resume: evt.start });// method to resume event emiiter, default evt.resume || function () {}
 
 es.pipe(process.stdout);
+
+// cs.object.fromEmitter (cs.fromEmitter with default opt { objectMode: true })
+// cs.string.fromEmitter (cs.fromEmitter with default opt { encoding: 'utf8' })
 ```
 
 ## map
