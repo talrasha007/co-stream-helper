@@ -72,7 +72,7 @@ var ms = cs.map(function *(data) {
 
 your_source_stream.pipe(ms).pipe(your_dest_stream);
 
-// parallel param will allow you to process data parallelly, but the sequence of data may be changed, be careful.
+// parallel param will allow you to process data parallelly, but the sequence of data may be changed if you have async call in the processor.
 // cs.object.map (cs.map with default opt { objectMode: true })
 // cs.string.map (cs.map with default opt { encoding: 'utf8' })
 ```
@@ -91,7 +91,7 @@ var ms = cs.each(function *(data) {
 your_source_stream.pipe(ms);
 // NOTE: ms.pipe is invalid.
 
-// parallel param will allow you to process data parallelly, but the sequence of data may be changed, be careful.
+// parallel param will allow you to process data parallelly.
 // cs.object.each (cs.each with default opt { objectMode: true })
 // cs.string.each (cs.each with default opt { encoding: 'utf8' })
 ```
