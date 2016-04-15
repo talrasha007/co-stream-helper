@@ -1,4 +1,4 @@
-var _ = require('codash'),
+var _ = require('co-lodash'),
     through = require('through'),
     duplex = require('duplexer'),
     pause = require('pause-stream'),

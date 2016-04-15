@@ -13,6 +13,6 @@ co(function *() {
     }
 
     yield writer.end();
-})(function (err) {
+}).catch(function (err) {
     console.log(err || 'done', Date.now() - start);
 });

@@ -1,13 +1,14 @@
 {
   "name": "co-stream",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "license": "MIT",
   "homepage": "https://github.com/talrasha007/co-stream-helper",
   "repository": "https://github.com/talrasha007/co-stream-helper.git",
   "readmeFile": "README.md",
   "keywords": ["co", "stream", "event", "helper"],
   "dependencies": {
     "co": "^4.0.0",
-    "codash": "*",
+    "co-lodash": "*",
     "duplexer": "^0.1.1",
     "pause-stream": "0.0.11",
     "split": "^0.3.1",

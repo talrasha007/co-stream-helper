@@ -19,7 +19,7 @@ co(function *() {
     }
 
     console.log('done. %d ms.', Date.now() - start);
-})(function (err) {
+}).catch(function (err) {
     if (err) console.log(err);
 });
 
@@ -38,6 +38,6 @@ co(function *() {
     }
 
     console.log('done. %d lines, %d ms.', cnt, Date.now() - start);
-})(function (err) {
+}).catch(function (err) {
     if (err) console.log(err);
 });

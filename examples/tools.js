@@ -1,4 +1,4 @@
-var _ = require('codash'),
+var _ = require('co-lodash'),
     co = require('co'),
     fs = require('fs'),
 
