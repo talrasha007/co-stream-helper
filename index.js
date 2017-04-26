@@ -27,12 +27,14 @@ const EventStream = require('./lib/event-stream.js');
 exports.object = {
   each: (iterator, opt) => new EachStream(iterator, _.defaults(opt || {}, { objectMode: true })),
   map: (mapper, opt) => new MapStream(mapper, _.defaults(opt || {}, { objectMode: true })),
+  filter: (filter, opt) => new MapStream(filter, _.defaults(opt || {}, { objectMode: true, isFilter: true  })),
   fromEmitter: (em, opt) => new EventStream(em, _.defaults(opt || {}, { objectMode: true }))
 };
 
 exports.string = {
   each: (iterator, opt) => new EachStream(iterator, _.defaults(opt || {}, { encoding: 'utf8' })),
   map: (mapper, opt) => new MapStream(mapper, _.defaults(opt || {}, { encoding: 'utf8' })),
+  filter: (filter, opt) => new MapStream(filter, _.defaults(opt || {}, { encoding: 'utf8', isFilter: true })),
   fromEmitter: (em, opt) => new EventStream(em, _.defaults(opt || {}, { encoding: 'utf8' }))
 };
 
