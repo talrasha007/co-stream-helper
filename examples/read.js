@@ -14,8 +14,8 @@ co(function *() {
         txt;
 
     while (txt = yield reader.read('utf8')) {
-        //console.log(txt);
-        //yield sleep(100);
+        // console.log(txt);
+        // yield sleep(100);
     }
 
     console.log('done. %d ms.', Date.now() - start);
@@ -32,8 +32,8 @@ co(function *() {
 
     while (typeof (txt = yield reader.read()) === 'string') {
         cnt++;
-        console.log(`line ${cnt}: ${txt}`);
-        //yield sleep(0);
+        // console.log(`line ${cnt}: ${txt}`);
+        // yield sleep(0);
     }
 
     console.log('done. %d lines, %d ms.', cnt, Date.now() - start);
