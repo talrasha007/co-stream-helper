@@ -60,7 +60,7 @@ es.pipe(process.stdout);
 
 ## map
 
-Create a map stream from an generator function.  
+Create a map stream from a function(can be generator / async function).  
 
 ``` js
 var cs = require('co-stream')
@@ -75,6 +75,25 @@ your_source_stream.pipe(ms).pipe(your_dest_stream);
 // parallel param will allow you to process data parallelly, but the sequence of data may be changed if you have async call in the processor.
 // cs.object.map (cs.map with default opt { objectMode: true })
 // cs.string.map (cs.map with default opt { encoding: 'utf8' })
+```
+
+## filter
+
+Create a filter stream from a function(can be generator / async function).  
+
+``` js
+var cs = require('co-stream')
+
+var fs = cs.filter(async (data) => {
+  // async data processing.
+  return processingResult;
+}, { objectMode: true, parallel: 3 });
+
+your_source_stream.pipe(fs).pipe(your_dest_stream);
+
+// parallel param will allow you to process data parallelly, but the sequence of data may be changed if you have async call in the processor.
+// cs.object.filter (cs.filter with default opt { objectMode: true })
+// cs.string.filter (cs.filter with default opt { encoding: 'utf8' })
 ```
 
 ## each
