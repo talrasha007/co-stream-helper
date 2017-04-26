@@ -4,14 +4,14 @@ const Writer = require('../').Writer;
 
 const start = Date.now();
 co(function *() {
-    let out = fs.createWriteStream('test.log'),
-        writer = new Writer(out, true);
+  let out = fs.createWriteStream('test.log'),
+    writer = new Writer(out, true);
 
-    for (let i = 0; i < 1024 * 100; i++) {
-        yield writer.writeLine(i);
-    }
+  for (let i = 0; i < 1024 * 100; i++) {
+    yield writer.writeLine(i);
+  }
 
-    yield writer.end();
+  yield writer.end();
 }).catch(function (err) {
-    console.log(err || 'done', Date.now() - start);
+  console.log(err || 'done', Date.now() - start);
 });
