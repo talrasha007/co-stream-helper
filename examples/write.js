@@ -1,14 +1,13 @@
-var co = require('co'),
-    fs = require('fs'),
+const co = require('co');
+const fs = require('fs');
+const Writer = require('../').Writer;
 
-    Writer = require('../').Writer;
-
-var start = Date.now();
+const start = Date.now();
 co(function *() {
-    var out = fs.createWriteStream('test.log'),
+    let out = fs.createWriteStream('test.log'),
         writer = new Writer(out, true);
 
-    for (var i = 0; i < 1024 * 100; i++) {
+    for (let i = 0; i < 1024 * 100; i++) {
         yield writer.writeline(i);
     }
 

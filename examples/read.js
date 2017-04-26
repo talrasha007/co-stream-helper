@@ -1,14 +1,14 @@
-var co = require('co'),
-    fs = require('fs'),
-    Reader = require('../').Reader,
-    LineReader = require('../').LineReader;
+const co = require('co');
+const fs = require('fs');
+const Reader = require('../').Reader;
+const LineReader = require('../').LineReader;
 
-function sleep(mill) {
-    return function (cb) { setTimeout(cb, mill); };
-}
+// function sleep(mill) {
+//     return function (cb) { setTimeout(cb, mill); };
+// }
 
 co(function *() {
-    var input = fs.createReadStream('test.log'),
+    let input = fs.createReadStream('test.log'),
         reader = new Reader(input),
         start = Date.now(),
         txt;
@@ -24,16 +24,15 @@ co(function *() {
 });
 
 co(function *() {
-    var input = fs.createReadStream('test.log'),
+    let input = fs.createReadStream('test.log'),
         reader = new LineReader(input),
         start = Date.now(),
         cnt = 0,
         txt;
 
-    var last = 0;
     while (typeof (txt = yield reader.read()) === 'string') {
         cnt++;
-        //console.log('line: ' + txt);
+        console.log(`line ${cnt}: ${txt}`);
         //yield sleep(0);
     }
 

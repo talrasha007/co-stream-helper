@@ -1,8 +1,7 @@
-var _ = require('co-lodash'),
-    co = require('co'),
-    fs = require('fs'),
+const co = require('co');
+const fs = require('fs');
 
-    cs = require('../');
+const cs = require('../');
 
 fs.createReadStream('test.log', {flags: 'r'})
     .pipe(cs.split())
