@@ -8,7 +8,7 @@ co(function *() {
         writer = new Writer(out, true);
 
     for (let i = 0; i < 1024 * 100; i++) {
-        yield writer.writeline(i);
+        yield writer.writeLine(i);
     }
 
     yield writer.end();
