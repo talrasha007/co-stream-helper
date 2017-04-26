@@ -141,7 +141,7 @@ co(function *() {
       
   var txt;
   while (txt = yield cin.read('utf8')) {
-    yield cout.write(txt); // or: yield cout.writeline(txt)
+    yield cout.write(txt); // or: yield cout.writeLine(txt)
   }
 })();
 
