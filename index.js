@@ -23,6 +23,7 @@ exports.Writer = require('./lib/writer.js').Writer;
 const EachStream = require('./lib/each-stream.js');
 const MapStream = require('./lib/map-stream.js');
 const EventStream = require('./lib/event-stream.js');
+const IterableStream = require('./lib/iterable-stream');
 
 exports.object = {
   each: (iterator, opt) => new EachStream(iterator, _.defaults(opt || {}, { objectMode: true })),
@@ -41,5 +42,6 @@ exports.string = {
 _.extend(exports, {
   each: (iterator, opt) => new EachStream(iterator, opt),
   map: (mapper, opt) => new MapStream(mapper, opt),
+  fromIterable: iterable => new IterableStream(iterable),
   fromEmitter: (em, opt) => new EventStream(em, opt)
 });
