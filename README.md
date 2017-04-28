@@ -28,7 +28,7 @@ Check `this.paused` to see current flow state. (write always returns `!this.paus
 
 this function is the basis for most of the synchronous streams in `event-stream`.
 
-``` js
+```js
 cs.through(function write(data) {
     this.emit('data', data)
     //this.pause() 
@@ -42,7 +42,7 @@ cs.through(function write(data) {
 
 Create a stream from an event emitter.
 
-``` js
+```js
 var cs = require('co-stream');
 
 var es = cs.fromEmitter(evt, {
@@ -75,7 +75,7 @@ cs.fromIterable([1, 2, 3, 4, 5, 6, 7, 8])
 
 Create a map stream from a function(can be generator / async function).  
 
-``` js
+```js
 var cs = require('co-stream')
 
 var ms = cs.map(function *(data) {
@@ -94,7 +94,7 @@ your_source_stream.pipe(ms).pipe(your_dest_stream);
 
 Create a filter stream from a function(can be generator / async function).  
 
-``` js
+```js
 var cs = require('co-stream')
 
 var fs = cs.filter(async (data) => {
@@ -113,7 +113,7 @@ your_source_stream.pipe(fs).pipe(your_dest_stream);
 
 If you just want to process data without any data to output, use this.
 
-``` js
+```js
 var cs = require('co-stream')
 
 var ms = cs.each(function *(data) {
@@ -134,7 +134,7 @@ Break up a stream and reassemble it so that each line is a chunk. matcher may be
 
 Example, read every line in a file ...
 
-``` js
+```js
 fs.createReadStream(file, {flags: 'r'})
   .pipe(cs.split())
   .pipe(cs.object.each(function *(line) {
@@ -151,7 +151,7 @@ It is assumed that the two streams are connected to each other in some way.
 
 (This is used by `pipeline` and `child`.)
 
-``` js
+```js
   var grep = cp.exec('grep Stream')
 
   cs.duplex(grep.stdin, grep.stdout)
@@ -159,7 +159,7 @@ It is assumed that the two streams are connected to each other in some way.
 
 ## Legacy API
 
-```javascript
+```js
 var cs = require('co-stream'),
     co = require('co'),
     fs = require('fs');
