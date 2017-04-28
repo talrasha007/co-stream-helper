@@ -58,6 +58,19 @@ es.pipe(process.stdout);
 // cs.string.fromEmitter (cs.fromEmitter with default opt { encoding: 'utf8' })
 ```
 
+## fromIterable(iterable)
+
+Create a stream from an iterable object.
+
+```js
+var cs = require('co-stream');
+
+cs.fromIterable([1, 2, 3, 4, 5, 6, 7, 8])
+  .pipe(cs.object.each(it => {
+    console.log(it);
+  }));
+```
+
 ## map
 
 Create a map stream from a function(can be generator / async function).  
