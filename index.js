@@ -9,12 +9,11 @@ exports.duplex = duplex;
 exports.pause = pause;
 exports.split = split;
 
-exports.wait = function *(stream) {
-  yield cb => {
-    stream.on('end', cb);
-    stream.on('finish', cb);
-  };
-};
+exports.wait = stream => new Promise((resolve, reject) => {
+  stream.on('end', resolve);
+  stream.on('finish', resolve);
+  stream.on('error', reject);
+});
 
 exports.Reader = require('./lib/reader.js').Reader;
 exports.LineReader = require('./lib/reader.js').LineReader;
