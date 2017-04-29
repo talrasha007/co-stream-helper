@@ -65,10 +65,11 @@ Create a stream from an iterable object.
 ```js
 var cs = require('co-stream');
 
-cs.fromIterable([1, 2, 3, 4, 5, 6, 7, 8])
-  .pipe(cs.object.each(it => {
-    console.log(it);
-  }));
+cs.fromIterable([1, 2, 3, 4, 5, 6, 7, 8]).pipe(cs.object.each(console.log));
+
+// Promise is also supported.
+const promise = new Promise(resolve => setTimeout(() => resolve(['a', 'b', 'c']), 1000));
+cs.fromIterable(promise).pipe(cs.object.each(console.log));
 ```
 
 ## map
