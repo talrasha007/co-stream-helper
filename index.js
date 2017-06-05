@@ -27,6 +27,7 @@ const IterableStream = require('./lib/iterable-stream');
 exports.object = {
   each: (iterator, opt) => new EachStream(iterator, _.defaults(opt || {}, { objectMode: true })),
   map: (mapper, opt) => new MapStream(mapper, _.defaults(opt || {}, { objectMode: true })),
+  flatMap: (mapper, opt) => new MapStream(mapper, _.defaults(opt || {}, { flatten: true, objectMode: true })),
   filter: (filter, opt) => new MapStream(filter, _.defaults(opt || {}, { objectMode: true, isFilter: true  })),
   fromEmitter: (em, opt) => new EventStream(em, _.defaults(opt || {}, { objectMode: true }))
 };
@@ -34,6 +35,7 @@ exports.object = {
 exports.string = {
   each: (iterator, opt) => new EachStream(iterator, _.defaults(opt || {}, { encoding: 'utf8' })),
   map: (mapper, opt) => new MapStream(mapper, _.defaults(opt || {}, { encoding: 'utf8' })),
+  flatMap: (mapper, opt) => new MapStream(mapper, _.defaults(opt || {}, { flatten: true, encoding: 'utf8' })),
   filter: (filter, opt) => new MapStream(filter, _.defaults(opt || {}, { encoding: 'utf8', isFilter: true })),
   fromEmitter: (em, opt) => new EventStream(em, _.defaults(opt || {}, { encoding: 'utf8' }))
 };
